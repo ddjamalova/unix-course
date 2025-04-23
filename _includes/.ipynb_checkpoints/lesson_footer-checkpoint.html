@@ -1,0 +1,33 @@
+{% comment %}
+  Generic footer for lesson pages.
+{% endcomment %}
+
+{% include gh_variables.html %}
+
+<footer>
+  <div class="row">
+    <div class="col-md-6 license" id="license-info" align="left">
+      Licensed under <a href="{{ site.cc_by_human }}">CC-BY 4.0</a> 2016–{{ 'now' | date: "%Y" }}
+    </div>
+    <div class="col-md-6 help-links" align="right">
+      {% assign edit_url = repo_url %}
+      {% if page.source == "Rmd" %}
+        <a href="{{ edit_url }}/edit/{{ default_branch }}/{{ page.path | replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd" }}" data-checker-ignore>Edit on GitHub</a>
+      {% else %}
+        <a href="{{ edit_url }}/edit/{{ default_branch }}/{{ site.training_site }}" data-checker-ignore>Edit on GitHub</a>
+      {% endif %}
+      / 
+      <a href="mailto:{{ site.email }}">Contact</a>
+      /
+      <a href="{{ site.citation }}">Citation</a>
+      / 
+      <a href="{{ site.denbi_site }}">de.NBI</a>
+      / 
+      <a href="{{ site.dekcd_site }}">de.KCD</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12" align="center">
+    </div>
+  </div>
+</footer>
